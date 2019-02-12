@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProcedimentoService } from 'src/services/domain/procedimento.service';
+import { AuthService } from 'src/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { ProcedimentoService } from 'src/services/domain/procedimento.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ProcedimentoService
+    ProcedimentoService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
