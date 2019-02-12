@@ -1,0 +1,28 @@
+<ion-content color="light">
+  <ion-card color="secondary" class="welcome-card">
+    <h3 color="light">Cabine Pérola</h3>
+    <ion-img src="/assets/perolas.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Comece logo!</ion-card-subtitle>
+      <ion-card-title>Bem vindo(a) ao Cabine Pérola App!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Faça seu login para aproveitar o máximo da sua aplicação!</p>
+    </ion-card-content>
+  </ion-card>
+
+  <form>
+    <ion-item>
+      <ion-label stacked color="secondary">Email</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="secondary">Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="login()">Entrar</ion-button>
+  </form>
+
+  <ion-button expand="block" color="tertiary" navPop>Registrar</ion-button>
+
+</ion-content>
