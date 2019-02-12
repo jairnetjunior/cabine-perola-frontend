@@ -15,6 +15,9 @@ import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
 import { AuthInterceptor, AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
 import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
+import { CidadeService } from 'src/services/domain/cidade.service';
+import { EstadoService } from 'src/services/domain/estado.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/err
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
-    ClienteService    
+    ClienteService,
+    CidadeService,
+    EstadoService,
+    FormBuilder   
   ],
   bootstrap: [AppComponent]
 })

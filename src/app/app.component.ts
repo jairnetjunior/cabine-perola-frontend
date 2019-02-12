@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from 'src/services/auth.service';
-import { AppPage } from 'e2e/src/app.po';
 
 @Component({
   selector: 'app-root',
