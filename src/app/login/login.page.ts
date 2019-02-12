@@ -39,4 +39,8 @@ export class LoginPage{
     error =>{});
   }
 
+  signup(){
+    this.navCtrl.navigateForward('signup');
+  }
+
 }

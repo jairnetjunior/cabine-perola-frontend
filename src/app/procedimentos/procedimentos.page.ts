@@ -4,7 +4,7 @@ import { ProcedimentoService } from 'src/services/domain/procedimento.service';
 import { ProcedimentoDTO } from 'src/models/procedimento.dto';
 
 @Component({
-  selector: 'app-procedimentos',
+  selector: 'procedimentos',
   templateUrl: './procedimentos.page.html',
   styleUrls: ['./procedimentos.page.scss'],
 })

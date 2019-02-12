@@ -16,6 +16,7 @@ import { ClienteService } from 'src/services/domain/cliente.service';
 import { AuthInterceptor, AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
 import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

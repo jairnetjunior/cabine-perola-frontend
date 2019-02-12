@@ -24,7 +24,12 @@ const routes: Routes = [
     loadChildren: './profile/profile.module#ProfilePageModule' },
   { 
     path: 'logout', 
-    loadChildren: './logout/logout.module#LogoutPageModule' }
+    loadChildren: './logout/logout.module#LogoutPageModule' 
+  },
+  { 
+    path: 'signup', 
+    loadChildren: './signup/signup.module#SignupPageModule' 
+  }
 ];
 
 @NgModule({

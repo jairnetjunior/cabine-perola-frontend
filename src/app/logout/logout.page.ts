@@ -3,7 +3,7 @@ import { AuthService } from 'src/services/auth.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'logout',
   templateUrl: './logout.page.html',
   styleUrls: ['./logout.page.scss'],
 })
