@@ -18,7 +18,8 @@ const routes: Routes = [
   { 
     path: 'home',
     loadChildren: './home/home.module#HomePageModule' 
-  }
+  },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 ];
 
 @NgModule({

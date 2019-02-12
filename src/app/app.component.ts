@@ -19,6 +19,11 @@ export class AppComponent {
       title: 'Procedimentos',
       url: '/procedimentos',
       icon: 'list-box'
+    },
+    {
+      title: 'Profile',
+      url: '/profile',
+      icon: 'person'
     }
   ];
 
