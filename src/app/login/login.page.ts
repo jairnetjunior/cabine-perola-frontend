@@ -24,8 +24,8 @@ export class LoginPage{
   login(){
     this.auth.authenticate(this.creds)
     .subscribe(reponse => {
-      console.log(reponse.headers.get('Authorization'));
-      this.navCtrl.navigateRoot('procedimentos')
+     this.auth.successfullLogin(reponse.headers.get('Authorization'));
+     this.navCtrl.navigateRoot('procedimentos')
     },
     error =>{});
   }
