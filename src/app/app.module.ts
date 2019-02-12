@@ -13,6 +13,8 @@ import { ProcedimentoService } from 'src/services/domain/procedimento.service';
 import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
+import { AuthInterceptor, AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
+import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,9 +30,11 @@ import { ClienteService } from 'src/services/domain/cliente.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProcedimentoService,
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider,
     AuthService,
     StorageService,
-    ClienteService
+    ClienteService    
   ],
   bootstrap: [AppComponent]
 })

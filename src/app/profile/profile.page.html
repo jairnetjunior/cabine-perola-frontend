@@ -9,9 +9,20 @@
 
 <ion-content color="light">
 
-    <ion-icon name="person" color="primary"></ion-icon>
-    <h2 text-center>{{cliente?.nome}}</h2>
-    <p text-center>{{cliente?.cpf}}</p>
-    <p text-center>{{cliente?.email}}</p>
+    <ion-card color="secondary" class="welcome-card">
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item color="secondary">
+            <ion-avatar slot="start">
+                <img class="circle" src="/assets/avatar-blank.png">
+            </ion-avatar>
+            <ion-label>{{cliente?.nome}}</ion-label>
+          </ion-item>
+          <h2>Nome: {{cliente?.nome}}</h2>
+          <p>CPF: {{cliente?.cpf}}</p>
+          <p>Email: {{cliente?.email}}</p>
+        </ion-card-content>
+      </ion-card>
 </ion-content>
 

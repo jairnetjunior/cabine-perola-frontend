@@ -21,6 +21,15 @@ export class LoginPage{
     this.menuCtrl.enable(false);
   }
 
+  ionViewDidEnter(){
+    this.auth.refreshToken()
+    .subscribe(reponse => {
+     this.auth.successfullLogin(reponse.headers.get('Authorization'));
+     this.navCtrl.navigateRoot('procedimentos')
+    },
+    error =>{});
+  }
+
   login(){
     this.auth.authenticate(this.creds)
     .subscribe(reponse => {
