@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from 'src/services/auth.service';
+import { AppPage } from 'e2e/src/app.po';
 
 @Component({
   selector: 'app-root',
@@ -24,13 +26,19 @@ export class AppComponent {
       title: 'Profile',
       url: '/profile',
       icon: 'person'
+    },
+    {
+      title: 'Logout',
+      url: '/logout',
+      icon: 'log-out'
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public auth: AuthService
   ) {
     this.initializeApp();
   }
