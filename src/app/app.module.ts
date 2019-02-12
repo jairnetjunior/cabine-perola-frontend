@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProcedimentoService } from 'src/services/domain/procedimento.service';
 import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
+import { ClienteService } from 'src/services/domain/cliente.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { StorageService } from 'src/services/storage.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProcedimentoService,
     AuthService,
-    StorageService
+    StorageService,
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })
