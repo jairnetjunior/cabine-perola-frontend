@@ -1,9 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>procedimentos</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">	
+        <ion-menu-button></ion-menu-button>	
+      </ion-buttons>
+      <ion-title>Procedimentos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="light">
+    
+      <ion-list>
+          <ion-item color="light" *ngFor="let item of items">
+            <ion-icon name="star" color="primary"></ion-icon>
+            <ion-label color="primary">{{ item.nome }}</ion-label>
+          </ion-item>
+          
+        </ion-list>
+        
+    
+  </ion-content>
