@@ -44,24 +44,27 @@ export class SignupPage {
       });
      }
   
-  ionViewDidLoad() {
+    ionViewWillEnter() {
     this.estadoService.findAll()
       .subscribe(response => {
         this.estados = response;
-        this.formGroup.controls.estadoId.setValue(this.estados[0].id);
+        this.formGroup.get("estadoId").setValue(this.estados[0].id);
         this.updateCidades();
       },
       error => {});
+      console.log(this.estados);
   }
 
   updateCidades() {
     let estado_id = this.formGroup.value.estadoId;
-    this.cidadeService.findAll(estado_id)
+    if(estado_id != null){
+      this.cidadeService.findAll(estado_id)
       .subscribe(response => {
         this.cidades = response;
-        this.formGroup.controls.cidadeId.setValue(null);
+        this.formGroup.get("cidadeId").setValue(null);
       },
       error => {});
+    }
   }
 
   signupUser() {
@@ -80,7 +83,7 @@ export class SignupPage {
         {
           text: 'Ok',
           handler: () => {
-            this.navCtrl.pop();
+            this.navCtrl.navigateBack('login');
           }
         }
       ]
