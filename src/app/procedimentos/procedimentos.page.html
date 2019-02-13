@@ -9,13 +9,44 @@
   
   <ion-content color="light">
     
-      <ion-list>
-          <ion-item color="light" *ngFor="let item of items">
-            <ion-icon name="star" color="primary"></ion-icon>
-            <ion-label color="primary">{{ item.nome }}</ion-label>
-          </ion-item>
-          
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+      
+        <ion-fab vertical="top" horizontal="end" slot="fixed">
+            <ion-fab-button>
+              <ion-icon name="cart"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        <ion-list>
+
+          <ion-card color="secondary" *ngFor="let procedimento of procedimentos">
+              <ion-card-header>
+                <ion-card-title>{{procedimento.nome}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <h2>{{procedimento.nome}}</h2>
+                <p>{{procedimento.descricao}}</p>
+                <p>{{procedimento.preco | currency}}</p>
+                <ion-item >
+                  <ion-icon name="calendar" color="primary"></ion-icon>
+                  <ion-label>Escolha uma data: </ion-label>
+                  <ion-datetime display-format="DD-MMMM-YYYY" min="2019" max="2020-10-31"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="time" color="primary"></ion-icon>
+                  <ion-label>Escolha uma hora: </ion-label>
+                  <ion-datetime display-format="HH:mm" min="08:00" max="18:00"></ion-datetime>
+                </ion-item>
+                <ion-button color="tertiary" expand="block" (click)="reservar()">Reservar</ion-button>
+              </ion-card-content>
+            </ion-card>
+
         </ion-list>
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll> 
         
     
   </ion-content>

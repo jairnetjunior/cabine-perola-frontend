@@ -19,10 +19,40 @@
             </ion-avatar>
             <ion-label>{{cliente?.nome}}</ion-label>
           </ion-item>
-          <h2>Nome: {{cliente?.nome}}</h2>
           <p>CPF: {{cliente?.cpf}}</p>
           <p>Email: {{cliente?.email}}</p>
+          <ion-button color="tertiary" (click)="listarEnderecos()">
+            <ion-icon name="home" color="primary"></ion-icon>
+          </ion-button>
+          <ion-button color="tertiary" (click)="listarAgendamento()">
+            <ion-icon name="reorder" color="primary"></ion-icon>
+          </ion-button>
+          <ion-button color="tertiary" (click)="listarTelefones()">
+              <ion-icon name="call" color="primary"></ion-icon>
+            </ion-button>
         </ion-card-content>
       </ion-card>
+
+    <ion-card color="secondary" class="welcome-card">
+      <ion-card-content *ngFor="let endereco of enderecos">
+        <p>Logradouro: {{endereco?.logradouro}}</p>
+        <p>Número: {{endereco?.numero}}</p>
+        <p>Complemento: {{endereco?.complemento}}</p>
+        <p>Bairro: {{endereco?.bairro}}</p>
+        <p>CEP: {{endereco?.cep}}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card color="secondary" class="welcome-card">
+        <ion-card-content *ngFor="let agendamento of agendamentos">
+          <p>Data: {{agendamento?.data}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card color="secondary" class="welcome-card">
+          <ion-card-content *ngFor="let telefone of telefones">
+            <p>Telefone: {{telefone}}</p>
+          </ion-card-content>
+        </ion-card>
 </ion-content>
 

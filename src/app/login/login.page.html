@@ -18,11 +18,12 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked" color="secondary">Senha</ion-label>
-      <ion-input [(ngModel)]="creds.senha"name="senha" type="password"></ion-input>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
     </ion-item>
     <ion-button expand="block" (click)="login()">Entrar</ion-button>
   </form>
 
   <ion-button expand="block" color="tertiary" navPop (click)="signup()">Registrar</ion-button>
+  <ion-button expand="block" color="danger" navPop (click)="esqueci()">Esqueci a senha</ion-button>
 
 </ion-content>

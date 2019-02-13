@@ -5,11 +5,13 @@ import { API_CONFIG } from "src/config/api.config";
 import { LocalUser } from "src/models/local_user";
 import { StorageService } from "./storage.service";
 import { JwtHelper } from "angular2-jwt";
+import { EmailDTO } from "src/models/email.dto";
 
 @Injectable()
 export class AuthService{
 
     jwtHelper: JwtHelper = new JwtHelper();
+    emailDto: EmailDTO;
 
     constructor(public http: HttpClient,
         public storage: StorageService){
@@ -46,5 +48,15 @@ export class AuthService{
 
     logOut(){
         this.storage.setLocalUser(null);
+    }
+
+    forgot(obj: EmailDTO){
+        return this.http.post(`${API_CONFIG.baseUrl}/forgot`,
+            obj,
+            {
+            observe: 'response',
+            responseType: 'text'
+            }
+        );
     }
 }

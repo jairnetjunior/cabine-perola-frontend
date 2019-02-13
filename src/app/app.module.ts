@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProcedimentoService } from 'src/services/domain/procedimento.service';
@@ -18,6 +16,10 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/err
 import { CidadeService } from 'src/services/domain/cidade.service';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { FormBuilder } from '@angular/forms';
+import { AgendamentoService } from 'src/services/domain/agendamento.service';
+import { FuncionarioService } from 'src/services/domain/funcionario.service';
+import { SessoesService } from 'src/services/domain/sessoes.service';
+import { EnderecoService } from 'src/services/domain/endereco.service';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { FormBuilder } from '@angular/forms';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ProcedimentoService,
+    FormBuilder,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,
@@ -41,7 +43,11 @@ import { FormBuilder } from '@angular/forms';
     ClienteService,
     CidadeService,
     EstadoService,
-    FormBuilder   
+    AgendamentoService,
+    ProcedimentoService,
+    FuncionarioService,
+    SessoesService,
+    EnderecoService
   ],
   bootstrap: [AppComponent]
 })

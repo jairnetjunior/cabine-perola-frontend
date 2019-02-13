@@ -13,4 +13,8 @@ export class ProcedimentoService{
     findAll() : Observable<ProcedimentoDTO[]> {
         return this.http.get<ProcedimentoDTO[]>(`${API_CONFIG.baseUrl}/procedimentos`);
     }
+
+    findPage (page : number = 0, linesPerPage : number = 3) : Observable<ProcedimentoDTO[]> {
+        return this.http.get<ProcedimentoDTO[]>(`${API_CONFIG.baseUrl}/procedimentos?page=${page}&linesPerPage=${3}`);
+      }
 }

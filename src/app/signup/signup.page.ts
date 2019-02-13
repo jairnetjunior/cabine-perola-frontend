@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EstadoDTO } from 'src/models/estado.dto';
 import { CidadeDTO } from 'src/models/cidade.dto';
@@ -51,7 +51,7 @@ export class SignupPage {
         this.formGroup.get("estadoId").setValue(this.estados[0].id);
         this.updateCidades();
       },
-      error => {});
+      () => {});
       console.log(this.estados);
   }
 
@@ -63,16 +63,16 @@ export class SignupPage {
         this.cidades = response;
         this.formGroup.get("cidadeId").setValue(null);
       },
-      error => {});
+      () => {});
     }
   }
 
   signupUser() {
     this.clienteService.insert(this.formGroup.value)
-      .subscribe(response => {
+      .subscribe(() => {
         this.showInsertOk();
       },
-      error => {});
+      () => {});
   }
 
   async showInsertOk() {

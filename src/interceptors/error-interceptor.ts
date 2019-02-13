@@ -5,12 +5,14 @@ import { StorageService } from '../services/storage.service';
 import { FieldMessage } from '../models/fieldmessage';
 
 import 'rxjs/add/operator/catch';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(public storage: StorageService, public alertCtrl: AlertController) {
+    constructor(public storage: StorageService, 
+        public alertCtrl: AlertController, 
+        public navCtrl: NavController) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -42,15 +44,28 @@ export class ErrorInterceptor implements HttpInterceptor {
                 break;
 
                 default:
-                this.handleDefaultEror(errorObj);
+                this.handleDefaultError(errorObj);
             }
 
             return Observable.throw(errorObj);
         }) as any;
     }
 
-    handle403() {
+    async handle403() {
         this.storage.setLocalUser(null);
+        let alert = await this.alertCtrl.create({
+            header: 'Erro 403: acesso negado',
+            message: 'Sem permissão ou token expirado',
+            buttons: [
+                {
+                  text: 'Ok',
+                  handler: () => {
+                    this.navCtrl.navigateRoot('login');
+                  }
+                }
+              ]
+        });
+        alert.present();
     }
 
     async handle401() {
@@ -79,7 +94,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         alert.present();
     }   
 
-    async handleDefaultEror(errorObj) {
+    async handleDefaultError(errorObj) {
         let alert = await this.alertCtrl.create({
             header: 'Erro ' + errorObj.status + ': ' + errorObj.error,
             message: errorObj.message,
