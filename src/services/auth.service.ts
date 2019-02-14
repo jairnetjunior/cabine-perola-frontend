@@ -11,7 +11,6 @@ import { EmailDTO } from "src/models/email.dto";
 export class AuthService{
 
     jwtHelper: JwtHelper = new JwtHelper();
-    emailDto: EmailDTO;
 
     constructor(public http: HttpClient,
         public storage: StorageService){
@@ -51,7 +50,9 @@ export class AuthService{
     }
 
     forgot(obj: EmailDTO){
-        return this.http.post(`${API_CONFIG.baseUrl}/forgot`,
+        console.log(`${API_CONFIG.baseUrl}/auth/forgot`);
+        console.log(obj);
+        return this.http.post(`${API_CONFIG.baseUrl}/auth/forgot`,
             obj,
             {
             observe: 'response',

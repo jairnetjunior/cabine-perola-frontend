@@ -18,6 +18,9 @@ export class ProcedimentosPage{
   procedimentos: ProcedimentoDTO[];
   agendamentos: AgendamentoDTO[];
   cliente: ClienteDTO;
+  date: Date;
+  proxAno: number;
+  hoje: string;
 
   constructor(
     public menuCtrl: MenuController,
@@ -26,6 +29,7 @@ export class ProcedimentosPage{
     public clienteService: ClienteService,
     public storage: StorageService){
       this.menuCtrl.enable(true);
+      this.calcularDatas();
   }
 
   ionViewWillEnter(){
@@ -62,6 +66,12 @@ export class ProcedimentosPage{
       console.log(error);
     });
     
+  }
+
+  calcularDatas(){
+    this.date = new Date();
+    this.proxAno = this.date.getFullYear()+1;
+    this.hoje = new Date(this.date.getTime() - this.date.getTimezoneOffset()*60000).toISOString();
   }
 
 }

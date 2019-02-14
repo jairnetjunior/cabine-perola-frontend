@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Resetar senha</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <form>
+    <ion-item>
+      <ion-label position="stacked" color="secondary">Email</ion-label>
+      <ion-input [(ngModel)]="email" name="email" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="esqueci()">Resetar</ion-button>
+  </form>
+</ion-content>

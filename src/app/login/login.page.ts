@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, NavController, AlertController } from '@ionic/angular';
+import { MenuController, NavController, AlertController, PopoverController } from '@ionic/angular';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { AuthService } from 'src/services/auth.service';
-import { EmailDTO } from 'src/models/email.dto';
-import { ClienteService } from 'src/services/domain/cliente.service';
-import { ClienteDTO } from 'src/models/cliente.dto';
+import { PopoverPage } from '../popover/popover.page';
 
 
 @Component({
@@ -18,23 +16,10 @@ export class LoginPage{
     senha: ""
   };
 
-  email: EmailDTO = {
-    email: ""
-  };
-
-  cliente: ClienteDTO= {
-    id: "",
-    nome: "",
-    cpf: "",
-    email: "",
-    senha: ""
-  };
-
   constructor(public menuCtrl: MenuController, 
     public navCtrl: NavController, 
-    public alertCtrl: AlertController,
-    public auth: AuthService,
-    public clienteService: ClienteService){
+    public auth: AuthService,    
+    public popoverCtrl: PopoverController){
       this.menuCtrl.enable(false);
   }
 
@@ -60,33 +45,14 @@ export class LoginPage{
     this.navCtrl.navigateForward('signup');
   }
 
-  async esqueci(){
-    if(this.creds.email != ""){
-      this.clienteService.findByEmail(this.creds.email)
-      .subscribe(response => {
-        this.cliente = response;
-      },
-      error => {}
-      );
-
-      if(this.cliente.email != ""){
-        this.auth.forgot(this.email);
-        let alert = await this.alertCtrl.create({
-          header: 'Sucesso!',
-          message: 'Email com nova senha enviado!',
-          buttons: [
-            {
-              text: 'Ok',
-              handler: () => {
-                this.navCtrl.navigateBack('login');
-              }
-            }
-          ]
-        });
-        alert.present();
-      }
-    }
-    
+  async presentPopover(event: any) {
+    const popover = await this.popoverCtrl.create({
+      component: PopoverPage,
+      event: event,
+      translucent: true,
+      cssClass: 'custom-popover'
+    });
+    return await popover.present();
   }
 
 }

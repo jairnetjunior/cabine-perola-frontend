@@ -53,19 +53,6 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     async handle403() {
         this.storage.setLocalUser(null);
-        let alert = await this.alertCtrl.create({
-            header: 'Erro 403: acesso negado',
-            message: 'Sem permissão ou token expirado',
-            buttons: [
-                {
-                  text: 'Ok',
-                  handler: () => {
-                    this.navCtrl.navigateRoot('login');
-                  }
-                }
-              ]
-        });
-        alert.present();
     }
 
     async handle401() {
@@ -100,7 +87,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             message: errorObj.message,
             buttons: ['Ok']
         });
-        alert.present();        
+        //alert.present();        
     }
 
   

@@ -64,7 +64,6 @@ export class ProfilePage{
     this.clienteService.findTelefones(this.cliente.id)
     .subscribe(response => {
       this.telefones = response;
-      console.log(this.telefones);
     },
     error => {
       console.log(error);

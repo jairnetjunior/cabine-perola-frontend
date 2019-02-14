@@ -29,6 +29,10 @@ const routes: Routes = [
   { 
     path: 'signup', 
     loadChildren: './signup/signup.module#SignupPageModule' 
+  },
+  { 
+    path: 'popover', 
+    loadChildren: './popover/popover.module#PopoverPageModule' 
   }
 ];
 

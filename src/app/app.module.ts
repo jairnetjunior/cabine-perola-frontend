@@ -11,8 +11,8 @@ import { ProcedimentoService } from 'src/services/domain/procedimento.service';
 import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
-import { AuthInterceptor, AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
-import { ErrorInterceptor, ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
+import { AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
+import { ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
 import { CidadeService } from 'src/services/domain/cidade.service';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { FormBuilder } from '@angular/forms';
@@ -38,9 +38,9 @@ import { EnderecoService } from 'src/services/domain/endereco.service';
     FormBuilder,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
-    AuthService,
     StorageService,
     ClienteService,
+    AuthService,
     CidadeService,
     EstadoService,
     AgendamentoService,
@@ -48,7 +48,7 @@ import { EnderecoService } from 'src/services/domain/endereco.service';
     FuncionarioService,
     SessoesService,
     EnderecoService
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
