@@ -50,8 +50,6 @@ export class AuthService{
     }
 
     forgot(obj: EmailDTO){
-        console.log(`${API_CONFIG.baseUrl}/auth/forgot`);
-        console.log(obj);
         return this.http.post(`${API_CONFIG.baseUrl}/auth/forgot`,
             obj,
             {

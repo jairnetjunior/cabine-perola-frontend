@@ -26,27 +26,23 @@ export class PopoverPage {
     public navCtrl: NavController) {}
 
   esqueci(){
-    if(this.email != ""){
+    if(this.email != "")
       this.verificarEmail();
-      if(this.emailDto.email == this.email){
-        this.enviarEmail();
-      }
-      else{
-        this.erroEmailDigitado()//email digitado não é igual ao do bd
-      }
-    }
-    else{
-      this.erroEmailDigitado()//campo vazio
-    }
-    
+    else
+      this.erroEmailDigitado()//campo vazio    
   }
 
   verificarEmail(){
+    this.emailDto = null;
     this.clienteService.emailExiste(this.email)
     .subscribe(response => {
       this.emailDto = response;
-    },
-    error => {}
+        if(this.emailDto.email == this.email)
+          this.enviarEmail();//email existe (campo = email do bd)          
+      },
+      error => {
+        this.erroEmailDigitado()//email digitado não existe no bd
+      }
     );
   }
 
@@ -80,6 +76,9 @@ export class PopoverPage {
       buttons: [
         {
           text: 'Ok',
+          handler: () => {
+            this.popoverCtrl.dismiss();
+          }
         }
       ]
     });
